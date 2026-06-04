@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:knowbox/core/routing/app_router.dart';
 import 'package:knowbox/features/auth/presentation/providers/auth_provider.dart';
-import 'package:knowbox/features/auth/presentation/screens/dashboard_page.dart';
-import 'package:knowbox/features/auth/presentation/screens/home_view_page.dart';
-import 'package:knowbox/features/auth/presentation/screens/login_page.dart';
-import 'package:knowbox/features/auth/presentation/screens/register_page.dart';
 import 'package:knowbox/features/files/presentation/providers/files_provider.dart';
 import 'package:knowbox/shared/theme/theme.dart';
 import 'package:knowbox/shared/theme/util.dart';
@@ -28,16 +25,10 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider.value(value: authProvider),
         ChangeNotifierProvider.value(value: filesProvider),
       ],
-      child: MaterialApp(
+      child: MaterialApp.router(
         title: 'KnowBox',
         theme: materialTheme.light(),
-        initialRoute: '/',
-        routes: {
-          '/': (context) => const HomeViewPage(),
-          '/login': (context) => const LoginPage(),
-          '/register': (context) => const RegisterPage(),
-          '/dashboard': (context) => const DashboardPage(),
-        },
+        routerConfig: appRouter,
       ),
     );
   }

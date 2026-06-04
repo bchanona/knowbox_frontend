@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:knowbox/features/auth/presentation/providers/auth_provider.dart';
 import 'package:knowbox/features/files/domain/entities/file_entity.dart';
 import 'package:knowbox/features/files/presentation/providers/files_provider.dart';
@@ -169,7 +170,7 @@ class _DashboardPageState extends State<DashboardPage> {
                         color: theme.colorScheme.onSurfaceVariant,
                         onPressed: () {
                           authProvider.resetState();
-                          Navigator.pushNamedAndRemoveUntil(context, '/', (route) => false);
+                          context.go('/');
                         },
                       ),
                     ],

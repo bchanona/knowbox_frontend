@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:knowbox/features/auth/presentation/providers/auth_provider.dart';
 import 'package:knowbox/features/auth/presentation/widgets/auth_buttons.dart';
 import 'package:knowbox/features/auth/presentation/widgets/custom_text_field.dart';
@@ -37,7 +38,7 @@ class _LoginPageState extends State<LoginPage> {
     final provider = context.read<AuthProvider>();
 
     if (provider.state.status == AuthStatus.success) {
-      Navigator.pushReplacementNamed(context, '/dashboard');
+      context.go('/dashboard');
     } else if (provider.state.status == AuthStatus.error) {
       provider.resetState();
       ScaffoldMessenger.of(context).showSnackBar(

@@ -39,6 +39,7 @@ class AuthProvider extends ChangeNotifier {
 
   AuthState _state = const AuthState();
   AuthState get state => _state;
+  bool get isAuthenticated => _state.status == AuthStatus.success;
 
   AuthProvider({
     required LoginUseCase loginUseCase,
